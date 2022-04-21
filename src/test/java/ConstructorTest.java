@@ -16,7 +16,7 @@ public class ConstructorTest {
         mainPage = open(Dictionary.MAIN_URL, MainPage.class);
         mainPage.clickConstructorIngredients();
         mainPage.clickConstructorBun();
-        Assert.assertTrue(mainPage.isBunTransferWork());
+        Assert.assertTrue("Переход в конструкторе не работает", mainPage.isBunTransferWork());
     }
 
     @Test
@@ -24,7 +24,7 @@ public class ConstructorTest {
     public void constructorSauseTransfer() {
         mainPage = open(Dictionary.MAIN_URL, MainPage.class);
         mainPage.clickConstructorSause();
-        Assert.assertTrue(mainPage.isSauseTransferWork());
+        Assert.assertTrue("Переход в конструкторе не работает", mainPage.isSauseTransferWork());
     }
 
     @Test
@@ -32,6 +32,6 @@ public class ConstructorTest {
     public void constructorIngredientsTransfer() {
         mainPage = open(Dictionary.MAIN_URL, MainPage.class);
         mainPage.clickConstructorIngredients();
-        Assert.assertTrue(mainPage.isIngredientsTransferWork());
+        Assert.assertTrue("Переход в конструкторе не работает", mainPage.isIngredientsTransferWork());
     }
 }

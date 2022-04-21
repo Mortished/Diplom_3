@@ -10,7 +10,6 @@ import org.junit.Test;
 import page.ForgotPasswordPage;
 import page.LoginPage;
 import page.MainPage;
-import page.ProfilePage;
 import page.RegistrationPage;
 
 @Story("Логин в аккаунт")
@@ -23,8 +22,8 @@ public class LoginTest {
     public void loginFromLoginPage() {
         loginPage = open(Dictionary.LOGIN_URL, LoginPage.class);
         loginPage.login(Dictionary.EMAIL, Dictionary.PASSWORD);
-        Assert.assertTrue(loginPage.waitForLoadMainPage());
-        Assert.assertEquals(Dictionary.MAIN_URL, url());
+        Assert.assertTrue("Логин не был осуществлен", loginPage.waitForLoadMainPage());
+        Assert.assertEquals("Главная страница не отображается", Dictionary.MAIN_URL, url());
     }
 
     @Test
@@ -33,8 +32,8 @@ public class LoginTest {
         MainPage mainPage = open(Dictionary.MAIN_URL, MainPage.class);
         loginPage = mainPage.loginButtonClick();
         loginPage.login(Dictionary.EMAIL, Dictionary.PASSWORD);
-        Assert.assertTrue(loginPage.waitForLoadMainPage());
-        Assert.assertEquals(Dictionary.MAIN_URL, url());
+        Assert.assertTrue("Логин не был осуществлен", loginPage.waitForLoadMainPage());
+        Assert.assertEquals("Главная страница не отображается", Dictionary.MAIN_URL, url());
     }
 
     @Test
@@ -43,8 +42,8 @@ public class LoginTest {
         RegistrationPage registrationPage = open(Dictionary.REGISTER_URL, RegistrationPage.class);
         loginPage = registrationPage.goToLoginPage();
         loginPage.login(Dictionary.EMAIL, Dictionary.PASSWORD);
-        Assert.assertTrue(loginPage.waitForLoadMainPage());
-        Assert.assertEquals(Dictionary.MAIN_URL, url());
+        Assert.assertTrue("Логин не был осуществлен", loginPage.waitForLoadMainPage());
+        Assert.assertEquals("Главная страница не отображается", Dictionary.MAIN_URL, url());
     }
 
     @Test
@@ -53,8 +52,8 @@ public class LoginTest {
         ForgotPasswordPage forgotPasswordPage = open(Dictionary.FORGOT_PASSWORD_URL, ForgotPasswordPage.class);
         loginPage = forgotPasswordPage.goToLoginPage();
         loginPage.login(Dictionary.EMAIL, Dictionary.PASSWORD);
-        Assert.assertTrue(loginPage.waitForLoadMainPage());
-        Assert.assertEquals(Dictionary.MAIN_URL, url());
+        Assert.assertTrue("Логин не был осуществлен", loginPage.waitForLoadMainPage());
+        Assert.assertEquals("Главная страница не отображается", Dictionary.MAIN_URL, url());
     }
 
     @After

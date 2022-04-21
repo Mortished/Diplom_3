@@ -31,16 +31,16 @@ public class ConstructorTransferTest {
     @DisplayName("Переход в конструктор из ЛК")
     public void openConstructor() {
         profilePage.clickConstructorLink();
-        Assert.assertTrue(loginPage.waitForLoadMainPage());
-        Assert.assertEquals(Dictionary.MAIN_URL, url());
+        Assert.assertTrue("Главная страница не загружена", loginPage.waitForLoadMainPage());
+        Assert.assertEquals("Переход в конструктор не работает", Dictionary.MAIN_URL, url());
     }
 
     @Test
     @DisplayName("Переход в конструктор из ЛК по логотипу ")
     public void openConstructorByLogo() {
         profilePage.clickMainLogo();
-        Assert.assertTrue(loginPage.waitForLoadMainPage());
-        Assert.assertEquals(Dictionary.MAIN_URL, url());
+        Assert.assertTrue("Главная страница не загружена", loginPage.waitForLoadMainPage());
+        Assert.assertEquals("Переход в конструктор не работает", Dictionary.MAIN_URL, url());
     }
 
     @After

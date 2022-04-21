@@ -36,7 +36,7 @@ public class RegistrationPage {
     }
 
     public void waitForLoadingLoginPage() {
-        $(byText("Вход")).shouldBe(Condition.visible, ofSeconds(8));
+        Selenide.page(LoginPage.class).isLoginPage();
     }
 
     public boolean isWarningVisible() {

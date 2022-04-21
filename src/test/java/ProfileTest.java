@@ -30,8 +30,8 @@ public class ProfileTest {
     @DisplayName("Переход в личный кабинет")
     public void openProfilePage() {
         profilePage = mainPage.profileButtonClick();
-        Assert.assertTrue(profilePage.isProfilePage());
-        Assert.assertEquals(Dictionary.PROFILE_URL, url());
+        Assert.assertTrue("Переход в ЛК не был произведен", profilePage.isProfilePage());
+        Assert.assertEquals("Отображается другая страница", Dictionary.PROFILE_URL, url());
     }
 
     @Test
@@ -39,8 +39,8 @@ public class ProfileTest {
     public void logoutFromProfile() {
         profilePage = mainPage.profileButtonClick();
         profilePage.logout();
-        Assert.assertTrue(loginPage.isLoginPage());
-        Assert.assertEquals(Dictionary.LOGIN_URL, url());
+        Assert.assertTrue("Выход из УЗ не был произведен", loginPage.isLoginPage());
+        Assert.assertEquals("Отображается другая страница", Dictionary.LOGIN_URL, url());
     }
 
     @After
